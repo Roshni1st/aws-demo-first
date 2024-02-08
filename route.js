@@ -3,7 +3,13 @@ const router = express.Router()
 const cognito = require('./cognito')
 const SQS = require('./sqs')
 
-router.get('/send',SQS.SQSDEMO)
+// routes for aws SQS
+router.get('/send',SQS.SQS_SEND_MESSAGE)
+router.get('/received', SQS.SQS_RECEIVE_MESSAGE);
+router.post('/remove',SQS.SQS_DELETE_MESSAGE)
+
+
+//routes for aws cognito
 router.post('/signup', async (req, res) => {
     const { body } = req
     let { email, name, password } = body
