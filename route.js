@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const cognito = require('./cognito')
+const SQS = require('./sqs')
 
+router.get('/send',SQS.SQSDEMO)
 router.post('/signup', async (req, res) => {
     const { body } = req
     let { email, name, password } = body

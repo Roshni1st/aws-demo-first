@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 //get routes
 const routes = require('./route')
-app.use('/auth',routes)
+app.use('/',routes)
 
 
 app.listen(5000,()=>{
