@@ -4,9 +4,9 @@ const cognito = require('./cognito')
 const SQS = require('./sqs')
 
 // routes for aws SQS
-router.get('/send',SQS.SQS_SEND_MESSAGE)
-router.get('/received', SQS.SQS_RECEIVE_MESSAGE);
-router.post('/remove',SQS.SQS_DELETE_MESSAGE)
+router.get('/send',SQS.SEND_MESSAGE)
+router.get('/received', SQS.RECEIVE_MESSAGE);
+router.post('/remove',SQS.DELETE_MESSAGE)
 
 
 //routes for aws cognito
