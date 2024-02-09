@@ -11,7 +11,7 @@ AWS.config.update({
 const sqs = new AWS.SQS({ apiVersion: '2012-11-05' });
 
 // send message
-exports.SEND_MESSAGE = async (req, res) => {
+exports.sendMessage = async (req, res) => {
     const params = {
         MessageBody: 'Hello from SQS!',
         QueueUrl: 'https://sqs.ap-south-1.amazonaws.com/533267026824/DemoQueue'
@@ -27,7 +27,7 @@ exports.SEND_MESSAGE = async (req, res) => {
 }
 
 // receive message
-exports.RECEIVE_MESSAGE = async (req, res) => {
+exports.recieveMessage = async (req, res) => {
     const params = {
         QueueUrl: 'https://sqs.ap-south-1.amazonaws.com/533267026824/DemoQueue',
         MaxNumberOfMessages: 1
@@ -48,7 +48,7 @@ exports.RECEIVE_MESSAGE = async (req, res) => {
 }
 
 // delete message
-exports.DELETE_MESSAGE = async (req, res) => {
+exports.deleteMessage = async (req, res) => {
     const { receiptHandle } = req.body;
     const params = {
         QueueUrl: 'https://sqs.ap-south-1.amazonaws.com/533267026824/DemoQueue',
